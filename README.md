@@ -13,8 +13,8 @@
 6) Изменение очков в рейтинге
 ![image](https://user-images.githubusercontent.com/86924413/200603002-ad41feb4-3cf5-4dd9-a52d-ba44d19b463c.png)
 7) Перемещение строк кода
-![image](https://user-images.githubusercontent.com/86924413/200603131-ce47c86e-431c-4dda-8424-b0c14d1f7323.png)
+![image](https://user-images.githubusercontent.com/86924413/200615735-26b794ac-3490-45d7-8a7d-5b354cc4d96c.png)
 8) Получение очков за перемещение строк кода
-![image](https://user-images.githubusercontent.com/86924413/200603263-ef917a7b-442c-4bbd-9561-e37c44c0f11e.png)
+![image](https://user-images.githubusercontent.com/86924413/200615821-db4bbc1e-28fa-474f-b7f6-e458248235a3.png)
 9) Изменение рейтинга
 ![image](https://user-images.githubusercontent.com/86924413/200603396-f8c1d52f-d92a-45d0-8acc-7683c4e05dd4.png)
