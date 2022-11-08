@@ -7,7 +7,7 @@
 3) Рейтинг
 ![image](https://user-images.githubusercontent.com/86924413/200602179-1ed9c099-aa42-4e20-8ca9-f4e21a20167b.png)
 4) Квиз
-![image](https://user-images.githubusercontent.com/86924413/200602504-1474d5b4-14e1-42d5-9f4c-f3990ec3e95f.png)
+![image](https://user-images.githubusercontent.com/86924413/200614709-36139226-2cb2-472e-b485-e0e75ce5c1c3.png)
 5) Получение очков за квиз
 ![image](https://user-images.githubusercontent.com/86924413/200602801-c17991a7-005d-4b17-86ab-07de43addc0a.png)
 6) Изменение очков в рейтинге
