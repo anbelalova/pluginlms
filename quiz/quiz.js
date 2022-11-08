@@ -3,9 +3,7 @@ import { Rating } from '../rating/rating'
 
 const getTemplate = () => {
 	return `
-		<div class="quiz-header">Квиз 1
-			<div class="quiz-points">5 очков</div>
-		</div>
+		<div class="quiz-header"><h3>Квиз</h3></div>
 		<div class="quiz-question"></div>
 		<div class="quiz-indicator"></div>
 		<div class="quiz-results"></div>
@@ -16,20 +14,31 @@ const getTemplate = () => {
 	`
 }
 
+// async function ratelist(db) {
+// 	let tx = db.transaction('auth');
+// 	let userStore = tx.objectStore('auth');
+// 	let users = await userStore.getAll();
+  
+// 	users.sort(function(a, b){
+// 		return b.points-a.points
+// 	})
+// 	if (users.length) {
+// 	  listElem.innerHTML = users.map(user => `<li class="rating-rating__item">${user.surname} ${user.name}<span>${user.points}</span></li>`).join('');
+// 	} else {
+// 	  listElem.innerHTML = '<li>Ошибка Рейтинга</li>'
+// 	}
+// }
+
 export class Quiz{
 	constructor(selector,options){
 		this.$el = document.querySelector(selector);
 		this.options = options.data;
 		this.db = options.db;
 
-		// let tx = this.db.transaction('quiz', 'readonly');
-		// let quizStore = tx.objectStore('quiz');
-		// quizStore.getAll().then(result => {
-		// 		this.data = result
-		// 		console.log('res',this.data)});
 		this.result_points = 0;
 		this.input_id = 0;
 
+		this.$el.classList.remove('--hidden');
 		this.#render();
 		this.#setup();
 	}

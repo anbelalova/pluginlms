@@ -1,6 +1,7 @@
 import './styles/styles'
 import { Rating } from '../rating/rating'
 import { Quiz } from '../quiz/quiz'
+import { DragnDrop } from '../dragndrop/drandrop'
 
 const getTemplate = (surname, name, points) => {
 	return `
@@ -48,6 +49,9 @@ export class StudentPage{
 		} else if(type==='task'){
 			let dataQuizlet = JSON.parse( localStorage.dataQuiz );
 			const quiz = new Quiz('#quiz', {'data':dataQuizlet, 'db':this.options});
+			this.$el.classList.add('--hidden');
+		} else if(type==='dragndrop'){
+			const dragndrop1 = new DragnDrop('#quiz', this.options);
 			this.$el.classList.add('--hidden');
 		}
 	}

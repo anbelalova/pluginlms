@@ -11,6 +11,7 @@ appPlug.innerHTML = `
 	<div id="student"></div>
 	<div id="rating"></div>
 	<div id="quiz"></div>
+	<div id="dragndrop"></div>
 </div>
 `
 
