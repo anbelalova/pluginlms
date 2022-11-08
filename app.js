@@ -1,7 +1,4 @@
-// import './auth/styles/styles'
 import './styles/styles'
-// import './quiz/styles/styles'
-import {Quiz} from './quiz/quiz'
 import {Auth} from './auth/auth'
 
 appPlug.classList.add('appPlug');
@@ -15,8 +12,6 @@ appPlug.innerHTML = `
 </div>
 `
 
-// const auth = new Auth('#auth', '');
-
 let db;
 
 init();
@@ -27,7 +22,6 @@ async function init() {
 		db.createObjectStore('quiz', { keyPath: 'id' });
 	});
 
-	// console.log()
 	const auth = new Auth('#auth', db);
 	// addQuiz(db)
 }
@@ -62,11 +56,11 @@ async function addQuiz(db) {
 	// 				]
 	// 			},
 	// 		]
-	let email = 'test1@mail.ru'
+	let email = 'test3@edu.hse.ru'
 	let password = '1234'
-	let name = 'Андрей'
-	let surname = 'Андреев'
-	let points = 2
+	let name = 'Мария'
+	let surname = 'Хмелева'
+	let points = 0
 	let student = true
   
 	let tx = db.transaction('auth', 'readwrite');
@@ -88,85 +82,10 @@ async function addQuiz(db) {
 	  }
 	}
   }
-// // async function list() {
-// 	let tx = db.transaction('auth');
-// 	let authStore = tx.objectStore('auth');
-
-
-// 	let users = await authStore.getAll();
-
-// 	if (users.length) {
-// 		listElem.innerHTML = users.map(user => `<li>
-//         Студент: ${user.surname} ${user.name}
-//       </li>`).join('');
-// 	} else {
-// 		listElem.innerHTML = '<li>Нет студентов</li>'
-// 	}
-// }
-
-
 
 window.addEventListener('unhandledrejection', event => {
 	alert("Ошибка: " + event.reason.message);
 });
-
-
-
-
-
-// let openRequest = indexedDB.open('plugin', 1);
-
-// openRequest.onupgradeneeded = function() {
-// 	let db = openRequest.result;
-// 	if (!db.objectStoreNames.contains('auth')) { // если хранилище "books" не существует
-// 	  db.createObjectStore('auth', {keyPath: 'id'});
-// 	}
-// };
-
-// openRequest.onerror = function() {
-// 	console.error("Error", openRequest.error);
-// };
-  
-// openRequest.onsuccess = function() {
-// 	let db = openRequest.result;
-  
-// 	db.onversionchange = function() {
-// 	  db.close();
-// 	  alert("База данных устарела, пожалуйста, перезагрузите страницу.")
-// 	};
-  
-// 	// ...база данных готова, используйте ее...
-// 	let transaction = db.transaction("auth", "readwrite"); // (1)
-
-// 	// получить хранилище объектов для работы с ним
-// 	let users = transaction.objectStore("auth");
-
-// 	let user = {
-// 		id: 3,
-// 		firstname: "Olga",
-// 		lastname:"M"
-// 	  };
-	  
-// 	  let request = users.add(user);
-// 	  request.onsuccess = function() { // (4)
-// 		console.log("Ok", request.result);
-// 	  };
-	  
-// 	  request.onerror = function() {
-// 		console.log("No ok", request.error);
-// 	  };
-// };
-  
-// openRequest.onblocked = function() {
-// 	// это событие не должно срабатывать, если мы правильно обрабатываем onversionchange
-  
-// 	// это означает, что есть ещё одно открытое соединение с той же базой данных
-// 	// и он не был закрыт после того, как для него сработал db.onversionchange
-// };
-
-
-
-
 
 // let obj1 = {
 // 	data: [
@@ -199,5 +118,3 @@ window.addEventListener('unhandledrejection', event => {
 // };
 // localStorage.dataQuiz1 = JSON.stringify(obj1);
 // let dataQuizlet = JSON.parse( localStorage.dataQuiz );
-
-// const quiz = new Quiz('#quiz', dataQuizlet);

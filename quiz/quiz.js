@@ -14,26 +14,34 @@ const getTemplate = () => {
 	`
 }
 
-// async function ratelist(db) {
-// 	let tx = db.transaction('auth');
-// 	let userStore = tx.objectStore('auth');
-// 	let users = await userStore.getAll();
+async function updateDb(user, db, result_points) {
+	let email = user.email
+	let password = user.password
+	let name = user.name
+	let surname = user.surname
+	let points = user.points + result_points
+	let student = user.student
   
-// 	users.sort(function(a, b){
-// 		return b.points-a.points
-// 	})
-// 	if (users.length) {
-// 	  listElem.innerHTML = users.map(user => `<li class="rating-rating__item">${user.surname} ${user.name}<span>${user.points}</span></li>`).join('');
-// 	} else {
-// 	  listElem.innerHTML = '<li>Ошибка Рейтинга</li>'
-// 	}
-// }
+	let tx = db.transaction('auth', 'readwrite');
+  
+	try {
+	  await tx.objectStore('auth').put({email,password,name,surname,points,student});
+	} catch(err) {
+	  if (err.name == 'ConstraintError') {
+		alert("Уже существует");
+	  } else {
+		throw err;
+	  }
+	}
+  }
 
 export class Quiz{
 	constructor(selector,options){
 		this.$el = document.querySelector(selector);
 		this.options = options.data;
-		this.db = options.db;
+		this.db = options.db.db;
+		this.db1 = options.db
+		this.user = options.db.res
 
 		this.result_points = 0;
 		this.input_id = 0;
@@ -103,7 +111,7 @@ export class Quiz{
 			}
 			this.$el.querySelector('.btn-next').disabled = true;
 		} else if(type === "back"){
-			const rating = new Rating('#rating', this.db)
+			const rating = new Rating('#rating', this.db1)
 			this.$el.classList.add('--hidden');
 		}
 	}
@@ -118,5 +126,6 @@ export class Quiz{
 		this.$el.querySelector('.quiz-results').innerHTML =`Вы набрали ${this.result_points} очков!`
 		this.$el.querySelector('.btn-rating-back').classList.remove('--hidden');
 		this.$el.querySelector('.btn-next').classList.add('--hidden');
+		updateDb(this.user, this.db, this.result_points);
 	}
 };
