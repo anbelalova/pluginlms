@@ -17,10 +17,33 @@ const getTemplate = () => {
 	</section>`
 }
 
+async function updateDb(user, db) {
+	let email = user.email
+	let password = user.password
+	let name = user.name
+	let surname = user.surname
+	let points = user.points + 5
+	let student = user.student
+  
+	let tx = db.transaction('auth', 'readwrite');
+  
+	try {
+	  await tx.objectStore('auth').put({email,password,name,surname,points,student});
+	} catch(err) {
+	  if (err.name == 'ConstraintError') {
+		alert("Уже существует");
+	  } else {
+		throw err;
+	  }
+	}
+}
+
 export class DragnDrop{
 	constructor(selector,options){
 		this.$el = document.querySelector(selector);
 		this.options = options;
+		this.user = options.res;
+		this.db = options.db
 
 		this.$el.classList.remove('--hidden');
 		this.#render();
@@ -42,6 +65,7 @@ export class DragnDrop{
 		const {type} = event.target.dataset
 		if (type === "next"){
 			alert('Вы набрали 5 баллов!')
+			updateDb(this.user, this.db);
 			const rating = new Rating('#rating', this.options)
 			this.$el.classList.add('--hidden');
 		}
