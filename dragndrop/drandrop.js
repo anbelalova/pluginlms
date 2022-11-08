@@ -7,11 +7,13 @@ const getTemplate = () => {
 	<h1 class="tasks__title">Расставьте строки кода в правильном порядке</h1>
 
 	<ul class="tasks__list">
-		<li class="tasks__item">Код 1</li>
-		<li class="tasks__item">Код 3</li>
-		<li class="tasks__item">Код 4</li>
-		<li class="tasks__item">Код 2</li>
-		<li class="tasks__item">Код 5</li>
+		<li class="tasks__item">ADVANCE (Normal(1,35,4))        ;</li>
+		<li class="tasks__item">RELEASE F007 ; Освободить устройство</li>
+		<li class="tasks__item">TERMINATE    ; удаление транзакта</li>
+		<li class="tasks__item">GENERATE (POISSON(1,40))  ; генерация потока транзактов</li>
+		<li class="tasks__item">DEPART mainQ ; Покинуть регистратор очереди</li>
+		<li class="tasks__item">QUEUE mainQ ; Войти в регистратор очереди</li>
+		<li class="tasks__item">SEIZE F007  ; Попытка занять устройство</li>
 	</ul>
 	<button class="btn-next" data-type="next">Завершить</button>
 	</section>`

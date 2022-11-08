@@ -47,7 +47,7 @@ export class StudentPage{
 			const rating = new Rating('#rating', this.options)
 			this.$el.classList.add('--hidden');
 		} else if(type==='task'){
-			let dataQuizlet = JSON.parse( localStorage.dataQuiz );
+			let dataQuizlet = JSON.parse( localStorage.dataQuiz3 );
 			const quiz = new Quiz('#quiz', {'data':dataQuizlet, 'db':this.options});
 			this.$el.classList.add('--hidden');
 		} else if(type==='dragndrop'){
